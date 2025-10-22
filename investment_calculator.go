@@ -1,7 +1,9 @@
 package main
 
-import "fmt"
-
 func main() {
-	fmt.Print("Hello world, wassup?")
+	var investmentAmmount = 1000
+	var expectedReturnRate = 5.5
+	var years = 10
+
+	var futureValue = investmentAmmount*1 + expectedReturnRate/years
 }
