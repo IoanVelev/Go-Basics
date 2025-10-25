@@ -16,12 +16,11 @@ func main() {
 	fmt.Print("Enter a tax rate: ")
 	fmt.Scan(&taxRate)
 
-	earnings_Before_Tax := revenue - expenses
-	earnings_After_Tax := earnings_Before_Tax * taxRate / 100
-	ratio := earnings_Before_Tax / earnings_After_Tax
+	ebt := revenue - expenses
+	profit := ebt * (1 - taxRate/100)
+	ratio := ebt / profit
 
-	fmt.Print(earnings_Before_Tax)
-	fmt.Print(earnings_After_Tax)
-	fmt.Print(ratio)
-	fmt.Print("This is profit calculator")
+	fmt.Println(ebt)
+	fmt.Println(profit)
+	fmt.Println(ratio)
 }
