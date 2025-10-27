@@ -22,9 +22,9 @@ func main() {
 
 	ebt, profit, ratio := calculateValues(revenue, expenses, taxRate)
 
-	fmt.Println(ebt)
-	fmt.Println(profit)
-	fmt.Println(ratio)
+	fmt.Printf("%.1f\n", ebt)
+	fmt.Printf("%.1f\n", profit)
+	fmt.Printf("%.3f\n", ratio)
 }
 
 func getUserInput(consoleMessage string) float64 {
