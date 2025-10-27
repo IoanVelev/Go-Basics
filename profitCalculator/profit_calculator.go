@@ -4,10 +4,11 @@ import (
 	"fmt"
 )
 
+var taxRate float64
+
 func main() {
 	var revenue float64
 	var expenses float64
-	var taxRate float64
 
 	// fmt.Print("Enter a revenue: ")
 	// fmt.Scan(&revenue)
@@ -18,9 +19,7 @@ func main() {
 	fmt.Print("Enter a tax rate: ")
 	fmt.Scan(&taxRate)
 
-	ebt := revenue - expenses
-	profit := ebt * (1 - taxRate/100)
-	ratio := ebt / profit
+	ebt, profit, ratio := calculateValues(revenue, expenses)
 
 	fmt.Println(ebt)
 	fmt.Println(profit)
@@ -31,4 +30,12 @@ func fetchSelectedRevenue(revenue float64) float64 {
 	fmt.Print("Enter a revenue: ")
 	fmt.Scan(&revenue)
 	return revenue
+}
+
+func calculateValues(revenue, expenses float64) (float64, float64, float64) {
+	ebt := revenue - expenses
+	profit := ebt * (1 - taxRate/100)
+	ratio := ebt / profit
+
+	return ebt, profit, ratio
 }
