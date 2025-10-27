@@ -9,8 +9,10 @@ func main() {
 	var expenses float64
 	var taxRate float64
 
-	fmt.Print("Enter a revenue: ")
-	fmt.Scan(&revenue)
+	// fmt.Print("Enter a revenue: ")
+	// fmt.Scan(&revenue)
+	revenue = fetchSelectedRevenue(revenue)
+
 	fmt.Print("Enter expenses: ")
 	fmt.Scan(&expenses)
 	fmt.Print("Enter a tax rate: ")
@@ -23,4 +25,10 @@ func main() {
 	fmt.Println(ebt)
 	fmt.Println(profit)
 	fmt.Println(ratio)
+}
+
+func fetchSelectedRevenue(revenue float64) float64 {
+	fmt.Print("Enter a revenue: ")
+	fmt.Scan(&revenue)
+	return revenue
 }
