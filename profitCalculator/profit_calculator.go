@@ -5,9 +5,9 @@ import (
 )
 
 func main() {
-	var revenue float64
-	var expenses float64
-	var taxRate float64
+	// var revenue float64
+	// var expenses float64
+	// var taxRate float64
 
 	// fmt.Print("Enter a revenue: ")
 	// fmt.Scan(&revenue)
@@ -16,9 +16,9 @@ func main() {
 	// fmt.Print("Enter a tax rate: ")
 	// fmt.Scan(&taxRate)
 
-	revenue = getUserInput("Enter a revenue: ")
-	expenses = getUserInput("Enter expenses: ")
-	taxRate = getUserInput("Enter a tax rate: ")
+	revenue := getUserInput("Enter a revenue: ")
+	expenses := getUserInput("Enter expenses: ")
+	taxRate := getUserInput("Enter a tax rate: ")
 
 	ebt, profit, ratio := calculateValues(revenue, expenses, taxRate)
 
