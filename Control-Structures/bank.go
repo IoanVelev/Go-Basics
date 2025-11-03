@@ -1,6 +1,14 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"os"
+)
+
+func writeBalanceToFile(balance float64) {
+	balanceText := fmt.Sprint(balance)
+	os.WriteFile("balance.txt", []byte(balanceText), 0644)
+}
 
 func main() {
 	var accountBalance = 1000.0
@@ -32,6 +40,7 @@ func main() {
 
 			accountBalance += depositAmmount
 			fmt.Println("Balance has been updated! New balance:", accountBalance)
+			writeBalanceToFile(accountBalance)
 		case 3:
 			var withdrawalAmount float64
 			fmt.Print("Withdrawal amount: ")
@@ -48,46 +57,12 @@ func main() {
 			}
 			accountBalance -= withdrawalAmount
 			fmt.Println("Balance has been updated! New balance:", accountBalance)
+			writeBalanceToFile(accountBalance)
 		default:
 			fmt.Println("Goodbye!")
 			fmt.Println("Thanks for choosing Go bank!")
 			return
 		}
-
-		// if choice == 1 {
-		// 	fmt.Println("Your balance is", accountBalance)
-		// } else if choice == 2 {
-		// 	var depositAmmount float64
-		// 	fmt.Print("Your deposit: ")
-		// 	fmt.Scan(&depositAmmount)
-
-		// 	if depositAmmount <= 0 {
-		// 		fmt.Println("Invalid amount! Must be greater than 0.")
-		// 		continue
-		// 	}
-
-		// 	accountBalance += depositAmmount
-		// 	fmt.Println("Balance has been updated! New balance:", accountBalance)
-		// } else if choice == 3 {
-		// 	var withdrawalAmount float64
-		// 	fmt.Print("Withdrawal amount: ")
-		// 	fmt.Scan(&withdrawalAmount)
-
-		// 	if withdrawalAmount <= 0 {
-		// 		fmt.Println("Invalid amount! Must be greater than 0.")
-		// 		continue
-		// 	}
-
-		// 	if withdrawalAmount > accountBalance {
-		// 		fmt.Println("Invalid amount! You can't withdraw more than you have. Current balance:", accountBalance)
-		// 		continue
-		// 	}
-		// 	accountBalance -= withdrawalAmount
-		// 	fmt.Println("Balance has been updated! New balance:", accountBalance)
-		// } else {
-		// 	fmt.Println("Goodbye!")
-		// 	break
-		// }
 	}
 
 }
